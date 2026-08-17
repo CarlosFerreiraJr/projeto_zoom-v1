@@ -1,0 +1,161 @@
+html, body {
+margin: 0;
+padding: 0;
+background-color: white; /* O fundo geral da página é branco */
+}
+
+/* PRIMEIRA SEÇÃO: Ocupa 100% da tela inicial com o degradê */
+.fundo-azul {
+background: 
+    radial-gradient(circle at 50% 60%, rgba(35, 90, 215, 0.6) 0%, rgba(11, 17, 44, 0) 70%),
+    linear-gradient(180deg, #090e23 0%, #101e4a 40%, #5d66b5 100%);
+width: 100%;
+height: 100vh; /* 100% da altura da janela */
+box-sizing: border-box;
+}
+
+/* HEADER BASE (Estado no topo) */
+header {
+display: flex; 
+flex-direction: row;   
+align-items: center;   
+position: fixed;
+top: 0;
+left: 0;
+right: 0;
+width: 100%;
+padding: 10px 40px; 
+box-sizing: border-box;
+z-index: 1001;
+transition: all 0.3s ease;
+}
+
+/* Container interno que segura a borda */
+.header-conteudo {
+    display: flex; 
+    flex-direction: row;   
+    align-items: center;
+    width: 100%;
+    padding-bottom: 10px;
+    border-bottom: 1px solid white; /* Borda ajustada aos elementos */
+    transition: border-color 0.3s ease;
+}
+
+nav {    
+flex-grow: 1;
+}
+
+nav ul {
+display: flex;
+list-style: none;         
+justify-content: center;    
+align-items: center;
+margin: 0;
+padding: 0;
+}
+
+nav ul a:link, 
+nav ul a:visited {
+text-decoration: none;    
+padding: 10px;
+color: white;    
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;     
+font-size: 12px;
+transition: color 0.3s ease;
+}
+
+nav ul a:hover {    
+   /*color: #0B5CFF; */
+  color: white; 
+  background: #1fabb5;
+  border: 2px solid #1fabb5;
+  border-radius: 25px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+.botao {
+text-decoration: none;
+background: white;
+border: 2px solid white;  
+color: blue;
+border-radius: 25px;
+padding: 5px 30px;
+margin-left: 10px;
+font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;     
+font-size: 12px;
+transition: all 0.3s ease;
+}
+
+.botao.destaque {  
+  color: white; 
+  background:  #0B5CFF;
+  border: 2px solid  #0B5CFF;
+}
+
+.botao.destaque:hover, .botao:hover{  
+  color: white; 
+  background: #1fabb5;
+  border: 2px solid #1fabb5;
+}
+
+.botao.destaque:hover {  
+color: white; 
+background: #1fabb5;
+border: 2px solid #1fabb5;
+}
+
+/* ========================================================
+HEADER ROLADO (Aplicado via JS quando o fundo é branco)
+======================================================== */
+header.rolado {
+background-color: white !important;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+padding-top: 10px;
+padding-bottom: 10px;
+/*border-bottom: 1px solid blue;*/
+}
+
+header.rolado .header-conteudo{
+background-color: transparent !important; /* Limpa o fundo interno */
+border-bottom: 1px solid #0B5CFF; /* Cor da borda quando rolado */
+box-shadow: none;
+}
+
+/* Troca os links do menu para cor escura */
+header.rolado nav ul a:link, 
+header.rolado nav ul a:visited {
+color: #333333;
+}
+
+header.rolado nav ul a:hover {
+/*color: #0B5CFF; */
+color: white
+}
+
+/* Ajusta o botão normal para se destacar no fundo branco */
+header.rolado .botao:not(.destaque) {
+background: transparent;
+border: 2px solid #0B5CFF;
+color: #0B5CFF;
+}
+
+header.rolado .botao:not(.destaque):hover {
+/*background: #d2e1ff;*/
+  color: white; 
+  background: #1fabb5;
+  border: 2px solid #1fabb5;
+}
+
+/* Para testar a rolagem da página */
+.conteudo-pagina {
+background-color: white;
+padding-top: 120px; /* Garante que o texto fique bem abaixo do header */
+padding-left: 30px;
+padding-right: 30px;
+min-height: 100vh;
+position: relative;
+z-index: 1;
+color: #333;
+font-family: sans-serif;
+}
